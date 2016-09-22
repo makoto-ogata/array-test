@@ -8,7 +8,7 @@ var params = [
 
 function putElements (){
 	$.each( params, function(index, elem){
-			$('.text-list').append('<li style="color:'+ elem.color +'">' + elem.text + '</li>');
+			$('<li style="color:'+ elem.color +'">' + elem.text + '</li>').appendTo('.text-list');
 		});
 }
 
