@@ -1,15 +1,23 @@
-var params = [
-	{ text: 'あいうえお', color:'#ff0000'},
-	{ text: 'かきくけこ', color:'#ffbf7f'},
-	{ text: 'さしすせそ', color:'#f34aab'},
-	{ text: 'たちつてと', color:'#5f8833'},
-	{ text: 'なにぬねの', color:'#8bcffc'},
-];
-
 function putElements (){
-	$.each( params, function(index, elem){
-			$('<li style="color:'+ elem.color +'">' + elem.text + '</li>').appendTo('.text-list');
-		});
+
+	var params = {
+		url: 'params.json',
+		dataType: 'json',
+		success: function(result) {
+			console.log(result);
+			// 8〜10行目まで関数にする
+			$.each( result, function(index, elem){
+					$('.text-list').append('<li style="color:'+ elem.color +'">' + elem.text + '</li>');
+			});
+			//var list1 = $('<li style="color:'+ elem.color +'">' + elem.text + '</li>').appendTo('.text-list');
+			//$(list1).addClass('test');
+		},
+		error: function(){
+			alert('読み込めませんでした');
+		}
+	}
+
+	$.ajax(params);
 }
 
 putElements();
