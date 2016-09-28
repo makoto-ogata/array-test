@@ -5,7 +5,7 @@ function putElements (){
 		dataType: 'json',
 		success: function(result) {
 				$.each( result, function(index, elem){
-						$('.tweet-area').append('<dt>'+ elem.name +'</dt><dd>' + elem.body + '</dd>');
+						$('<dt>'+ elem.name +'</dt><dd>' + elem.body + '</dd>').appendTo('.tweet-area');
 				});
 		},
 		error: function(){
