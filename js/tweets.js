@@ -10,6 +10,14 @@ function putElements (){
 		},
 		error: function(){
 			alert('読み込めませんでした');
+		},
+		beforeSend: function(){
+			$('.more-button').prop('disabled', true);
+			$('.more-button').text('通信中...');
+		},
+		complete: function(){
+			$('.more-button').text('もっと読む');
+			$('.more-button').prop('disabled', false);
 		}
 	}
 
